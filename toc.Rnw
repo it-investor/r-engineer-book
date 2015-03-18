@@ -1,0 +1,32 @@
+\documentclass{article}
+
+%\usepackage[full]{harvard}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian,english]{babel}
+
+%\Sexpr{opts_chunk$set(out.width=".2\\paperwidth")}
+
+\begin{document} 
+
+<<setup, include=FALSE, cache=FALSE>>=
+knit_hooks$set(inline = function (x) {
+    if (is.numeric(x)) {
+        x = round(x, getOption("digits"))
+    }
+    paste(as.character(x), collapse = ", ") 
+})
+#options(formatR.arrow=TRUE,width=80)
+#opts_chunk$set(fig.path='figure/graphics-', cache.path='cache/graphics-', fig.align='center', dev='tikz', fig.width=5, fig.height=5, fig.show='hold', cache=TRUE, par=TRUE)
+@
+
+%\bibliographystyle{agsm}   
+
+\Sexpr{knit_child('linear-graph-transformations.Rnw')} 
+
+%\Sexpr{knit_child('cap2.Rnw')}   
+
+%\bibliography{LibroBib} 
+
+\end{document}
